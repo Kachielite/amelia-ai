@@ -1,3 +1,4 @@
+import 'package:amelia/src/feature/signup/signup_page.dart';
 import 'package:amelia/src/shared/presentation/custom_widgets/form_widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,13 @@ class WelcomeCTA extends StatelessWidget {
           height: 24,
         ),
         CustomButton(
-            onPressed: () {}, label: "Sign up", type: ButtonType.secondary),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const SignUpPage();
+              }));
+            },
+            label: "Sign up",
+            type: ButtonType.secondary),
       ],
     );
   }
