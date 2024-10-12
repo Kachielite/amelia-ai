@@ -1,4 +1,4 @@
-import 'package:amelia/src/feature/onboarding/onboarding_model.dart';
+import '../feature/onboarding/onboarding_model.dart';
 
 List<OnboardingModel> onboardingScreens = [
   OnboardingModel(
@@ -17,5 +17,3 @@ List<OnboardingModel> onboardingScreens = [
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor...",
       image: "assets/onboarding/onboarding3.png")
 ];
-
-// smooth_page_indicator

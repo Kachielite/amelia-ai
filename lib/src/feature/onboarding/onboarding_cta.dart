@@ -1,3 +1,4 @@
+import 'package:amelia/src/feature/welcome/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,6 +15,7 @@ class OnboardingCTA extends StatelessWidget {
           border: Border(top: BorderSide(color: Color(0XFF35383F)))),
       padding: const EdgeInsets.only(top: 24, left: 24, right: 26, bottom: 36),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           ElevatedButton(
               onPressed: () {
@@ -32,7 +34,10 @@ class OnboardingCTA extends StatelessWidget {
           ElevatedButton(
               onPressed: () {
                 lastPage
-                    ? null
+                    ? Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) {
+                        return const WelcomePage();
+                      }))
                     : controller.nextPage(
                         duration: const Duration(milliseconds: 500),
                         curve: Curves.easeIn);
