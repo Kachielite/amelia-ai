@@ -2,6 +2,8 @@ import 'package:amelia/src/shared/presentation/custom_widgets/form_widgets/custo
 import 'package:amelia/src/shared/presentation/custom_widgets/form_widgets/custom_input_field.dart';
 import 'package:flutter/material.dart';
 
+import '../../shared/presentation/custom_widgets/form_widgets/custom_password_field.dart';
+
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
 
@@ -24,10 +26,9 @@ class LoginForm extends StatelessWidget {
         const SizedBox(
           height: 24,
         ),
-        CustomInputField(
+        CustomPasswordField(
             label: "Password",
             initialValue: "",
-            icon: Icons.remove_red_eye,
             validator: (value) {
               print(value);
             },

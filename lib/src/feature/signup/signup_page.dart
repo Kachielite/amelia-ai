@@ -1,3 +1,4 @@
+import 'package:amelia/src/feature/login/login_page.dart';
 import 'package:amelia/src/feature/signup/signup_form.dart';
 import 'package:amelia/src/feature/signup/signup_info.dart';
 import 'package:amelia/src/shared/presentation/custom_widgets/form_widgets/custom_button.dart';
@@ -18,56 +19,72 @@ class _SignUpState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppTheme.primaryColor,
-      ),
-      body: SizedBox(
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        appBar: AppBar(
+          backgroundColor: AppTheme.primaryColor,
+        ),
+        body: SafeArea(
+            child: Column(
+          mainAxisSize: MainAxisSize.max,
           children: [
-            Container(
-              padding: const EdgeInsets.only(top: 24, left: 24, right: 24),
-              child: const Column(
+            Expanded(
+                child: SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
                 children: [
-                  SignUpInfo(),
-                  SizedBox(
-                    height: 32,
+                  Container(
+                    padding: const EdgeInsets.only(
+                        top: 24, left: 24, right: 24, bottom: 24),
+                    child: const Column(
+                      children: [
+                        SignUpInfo(),
+                        SizedBox(
+                          height: 50,
+                        ),
+                        SignUpForm(),
+                      ],
+                    ),
                   ),
-                  SignUpForm(),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Already have an account?',
+                        style: TextStyle(fontWeight: FontWeight.w700),
+                      ),
+                      TextButton(
+                          onPressed: () {
+                            Navigator.pushReplacement(context,
+                                MaterialPageRoute(builder: (context) {
+                              return const LoginPage();
+                            }));
+                          },
+                          child: const Text(
+                            'Log in',
+                            style: TextStyle(
+                                color: AppTheme.secondaryColor,
+                                fontWeight: FontWeight.w700),
+                          ))
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 100,
+                  ),
+                  Container(
+                    decoration: const BoxDecoration(
+                        border:
+                            Border(top: BorderSide(color: Color(0XFF35383F)))),
+                    padding: const EdgeInsets.only(
+                        top: 24, left: 24, right: 26, bottom: 36),
+                    child: CustomButton(
+                        onPressed: () {},
+                        label: 'Continue',
+                        type: ButtonType.primary),
+                  )
                 ],
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Already have an account?',
-                  style: TextStyle(fontWeight: FontWeight.w700),
-                ),
-                TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Log in',
-                      style: TextStyle(
-                          color: AppTheme.secondaryColor,
-                          fontWeight: FontWeight.w700),
-                    ))
-              ],
-            ),
-            Container(
-              decoration: const BoxDecoration(
-                  border: Border(top: BorderSide(color: Color(0XFF35383F)))),
-              padding: const EdgeInsets.only(
-                  top: 24, left: 24, right: 26, bottom: 36),
-              child: CustomButton(
-                  onPressed: () {},
-                  label: 'Continue',
-                  type: ButtonType.primary),
-            )
+            ))
           ],
-        ),
-      ),
-    );
+        )));
   }
 }

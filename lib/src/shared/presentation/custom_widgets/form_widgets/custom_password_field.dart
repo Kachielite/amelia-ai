@@ -2,36 +2,36 @@ import 'package:flutter/material.dart';
 
 import '../../theme.dart';
 
-class CustomInputField extends StatefulWidget {
-  const CustomInputField(
+class CustomPasswordField extends StatefulWidget {
+  const CustomPasswordField(
       {super.key,
       required this.label,
       required this.initialValue,
       required this.validator,
-      required this.onSaved,
-      required this.icon});
+      required this.onSaved});
 
   final String label;
   final String initialValue;
   final void Function(String value) validator;
   final void Function(String value) onSaved;
-  final IconData icon;
 
   @override
-  State<StatefulWidget> createState() {
-    return _CustomInputFieldState();
+  State<CustomPasswordField> createState() {
+    return _CustomPasswordFieldState();
   }
 }
 
-class _CustomInputFieldState extends State<CustomInputField> {
+class _CustomPasswordFieldState extends State<CustomPasswordField> {
   late FocusNode _focusNode;
   late bool _isFocused;
+  late bool _isObscured;
 
   @override
   void initState() {
     super.initState();
     _focusNode = FocusNode();
     _isFocused = false;
+    _isObscured = true; // Initially, the password is obscured
 
     // Add a listener to update the focus state
     _focusNode.addListener(() {
@@ -60,8 +60,8 @@ class _CustomInputFieldState extends State<CustomInputField> {
           height: 16,
         ),
         TextFormField(
-          cursorColor: Colors.white,
           focusNode: _focusNode, // Attach the focus node to the TextFormField
+          obscureText: _isObscured, // Control whether the text is obscured
           decoration: InputDecoration(
               enabledBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(
@@ -77,18 +77,26 @@ class _CustomInputFieldState extends State<CustomInputField> {
               ),
               hintStyle: const TextStyle(color: Color(0XFF35383F)),
               hintText: widget.label, // Placeholder text
-              suffixIcon: InkWell(
-                child: Icon(
-                  widget.icon,
+              suffixIcon: IconButton(
+                icon: Icon(
+                  _isObscured
+                      ? Icons.visibility_off
+                      : Icons.visibility, // Toggle icon
                   size: 28,
                   color: _isFocused
                       ? Colors.white
                       : AppTheme
                           .secondaryColor, // Change icon color based on focus
                 ),
+                onPressed: () {
+                  setState(() {
+                    _isObscured = !_isObscured; // Toggle password visibility
+                  });
+                },
               )),
           initialValue: widget.initialValue,
-          keyboardType: TextInputType.name,
+          keyboardType: TextInputType
+              .visiblePassword, // Set keyboard type for password input
         )
       ],
     );

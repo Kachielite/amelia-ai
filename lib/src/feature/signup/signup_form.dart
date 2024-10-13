@@ -1,5 +1,6 @@
 import 'package:amelia/src/shared/presentation/custom_widgets/form_widgets/custom_checkbox.dart';
 import 'package:amelia/src/shared/presentation/custom_widgets/form_widgets/custom_input_field.dart';
+import 'package:amelia/src/shared/presentation/custom_widgets/form_widgets/custom_password_field.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/presentation/theme.dart';
@@ -26,10 +27,9 @@ class SignUpForm extends StatelessWidget {
         const SizedBox(
           height: 24,
         ),
-        CustomInputField(
+        CustomPasswordField(
             label: "Password",
             initialValue: "",
-            icon: Icons.remove_red_eye,
             validator: (value) {
               print(value);
             },
