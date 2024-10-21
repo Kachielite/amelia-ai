@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../shared/presentation/theme.dart';
+import '../../../../core/theme/app_pallete.dart';
 
 class WelcomeInfo extends StatelessWidget {
   const WelcomeInfo({super.key});
@@ -22,7 +22,7 @@ class WelcomeInfo extends StatelessWidget {
           style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 40,
-              color: AppTheme.secondaryColor),
+              color: AppPallete.primaryColor ),
         )
       ],
     );

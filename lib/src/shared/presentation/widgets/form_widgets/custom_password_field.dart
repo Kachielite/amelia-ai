@@ -1,6 +1,6 @@
+import 'package:amelia/src/core/theme/app_pallete.dart';
 import 'package:flutter/material.dart';
 
-import '../../theme.dart';
 
 class CustomPasswordField extends StatefulWidget {
   const CustomPasswordField(
@@ -63,18 +63,6 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
           focusNode: _focusNode, // Attach the focus node to the TextFormField
           obscureText: _isObscured, // Control whether the text is obscured
           decoration: InputDecoration(
-              enabledBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: AppTheme.secondaryColor, // Default border color
-                  width: 1.0, // Border thickness
-                ),
-              ),
-              focusedBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.white, // Focused border color
-                  width: 2.0, // Border thickness when focused
-                ),
-              ),
               hintStyle: const TextStyle(color: Color(0XFF35383F)),
               hintText: widget.label, // Placeholder text
               suffixIcon: IconButton(
@@ -84,9 +72,8 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
                       : Icons.visibility, // Toggle icon
                   size: 28,
                   color: _isFocused
-                      ? Colors.white
-                      : AppTheme
-                          .secondaryColor, // Change icon color based on focus
+                      ? AppPallete.whiteColor
+                      : AppPallete.primaryColor, // Change icon color based on focus
                 ),
                 onPressed: () {
                   setState(() {

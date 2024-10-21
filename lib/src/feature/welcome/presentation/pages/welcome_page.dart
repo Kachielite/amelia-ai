@@ -1,8 +1,7 @@
-import 'package:amelia/src/feature/welcome/welcome_cta.dart';
-import 'package:amelia/src/feature/welcome/welcome_info.dart';
+import 'package:amelia/src/feature/welcome/presentation/widgets/welcome_cta.dart';
+import 'package:amelia/src/feature/welcome/presentation/widgets/welcome_info.dart';
 import 'package:flutter/material.dart';
 
-import '../../shared/presentation/theme.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -10,9 +9,7 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppTheme.primaryColor,
-        ),
+        appBar: AppBar(),
         body: Container(
           width: double.infinity,
           padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 24),

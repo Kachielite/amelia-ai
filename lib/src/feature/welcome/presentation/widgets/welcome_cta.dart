@@ -1,7 +1,8 @@
-import 'package:amelia/src/feature/login/login_page.dart';
-import 'package:amelia/src/feature/signup/signup_page.dart';
-import 'package:amelia/src/shared/presentation/custom_widgets/form_widgets/custom_button.dart';
+import 'package:amelia/src/feature/login/presentation/pages/login_page.dart';
+import 'package:amelia/src/feature/signup/presentation/pages/signup_page.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../shared/presentation/widgets/form_widgets/custom_button.dart';
 
 class WelcomeCTA extends StatelessWidget {
   const WelcomeCTA({super.key});

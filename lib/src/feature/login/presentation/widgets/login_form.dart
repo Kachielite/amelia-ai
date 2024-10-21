@@ -1,8 +1,11 @@
-import 'package:amelia/src/shared/presentation/custom_widgets/form_widgets/custom_checkbox.dart';
-import 'package:amelia/src/shared/presentation/custom_widgets/form_widgets/custom_input_field.dart';
+
 import 'package:flutter/material.dart';
 
-import '../../shared/presentation/custom_widgets/form_widgets/custom_password_field.dart';
+import '../../../../shared/presentation/widgets/form_widgets/custom_checkbox.dart';
+import '../../../../shared/presentation/widgets/form_widgets/custom_input_field.dart';
+import '../../../../shared/presentation/widgets/form_widgets/custom_password_field.dart';
+
+
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});

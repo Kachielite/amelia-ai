@@ -1,9 +1,9 @@
-import 'package:amelia/src/feature/onboarding/onboarding_cta.dart';
-import 'package:amelia/src/feature/onboarding/onboarding_slide.dart';
+import 'package:amelia/src/feature/onboarding/presentation/widgets/onboarding_cta.dart';
+import 'package:amelia/src/feature/onboarding/presentation/widgets/onboarding_slide.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../core/app_constatns.dart';
+import '../../../../core/constants/onboarding/onboarding_constants.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});

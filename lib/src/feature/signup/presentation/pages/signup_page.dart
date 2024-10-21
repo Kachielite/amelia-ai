@@ -1,10 +1,10 @@
-import 'package:amelia/src/feature/login/login_page.dart';
-import 'package:amelia/src/feature/signup/signup_form.dart';
-import 'package:amelia/src/feature/signup/signup_info.dart';
-import 'package:amelia/src/shared/presentation/custom_widgets/form_widgets/custom_button.dart';
+import 'package:amelia/src/feature/login/presentation/pages/login_page.dart';
+import 'package:amelia/src/feature/signup/presentation/widgets/signup_form.dart';
+import 'package:amelia/src/feature/signup/presentation/widgets/signup_info.dart';
 import 'package:flutter/material.dart';
 
-import '../../shared/presentation/theme.dart';
+import '../../../../core/theme/app_pallete.dart';
+import '../../../../shared/presentation/widgets/form_widgets/custom_button.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -19,9 +19,7 @@ class _SignUpState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: AppTheme.primaryColor,
-        ),
+        appBar: AppBar(),
         body: SafeArea(
             child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -62,7 +60,7 @@ class _SignUpState extends State<SignUpPage> {
                           child: const Text(
                             'Log in',
                             style: TextStyle(
-                                color: AppTheme.secondaryColor,
+                                color: AppPallete.primaryColor ,
                                 fontWeight: FontWeight.w700),
                           ))
                     ],

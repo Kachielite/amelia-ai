@@ -1,4 +1,4 @@
-import '../feature/onboarding/onboarding_model.dart';
+import '../../../feature/onboarding/domain/entities/onboarding_model.dart';
 
 List<OnboardingModel> onboardingScreens = [
   OnboardingModel(

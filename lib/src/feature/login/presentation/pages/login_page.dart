@@ -1,10 +1,11 @@
-import 'package:amelia/src/feature/login/login_form.dart';
-import 'package:amelia/src/feature/signup/signup_info.dart';
-import 'package:amelia/src/feature/signup/signup_page.dart';
-import 'package:amelia/src/shared/presentation/custom_widgets/form_widgets/custom_button.dart';
+import 'package:amelia/src/feature/login/presentation/widgets/login_form.dart';
+import 'package:amelia/src/feature/signup/presentation/widgets/signup_info.dart';
+import 'package:amelia/src/feature/signup/presentation/pages/signup_page.dart';
+
 import 'package:flutter/material.dart';
 
-import '../../shared/presentation/theme.dart';
+import '../../../../core/theme/app_pallete.dart';
+import '../../../../shared/presentation/widgets/form_widgets/custom_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -19,9 +20,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppTheme.primaryColor,
-      ),
+      appBar: AppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           // Added SingleChildScrollView to handle overflow
@@ -51,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: const Text(
                       'Forgot password?',
                       style: TextStyle(
-                          color: AppTheme.secondaryColor,
+                          color: AppPallete.primaryColor,
                           fontWeight: FontWeight.w700),
                     ),
                   ),
@@ -75,7 +74,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: const Text(
                           'Sign up',
                           style: TextStyle(
-                              color: AppTheme.secondaryColor,
+                              color: AppPallete.primaryColor,
                               fontWeight: FontWeight.w700),
                         ),
                       ),

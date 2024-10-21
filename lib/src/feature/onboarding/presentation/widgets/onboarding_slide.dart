@@ -1,4 +1,4 @@
-import 'package:amelia/src/feature/onboarding/onboarding_model.dart';
+import 'package:amelia/src/feature/onboarding/domain/entities/onboarding_model.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

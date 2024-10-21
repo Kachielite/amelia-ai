@@ -1,9 +1,9 @@
-import 'package:amelia/src/shared/presentation/custom_widgets/form_widgets/custom_checkbox.dart';
-import 'package:amelia/src/shared/presentation/custom_widgets/form_widgets/custom_input_field.dart';
-import 'package:amelia/src/shared/presentation/custom_widgets/form_widgets/custom_password_field.dart';
 import 'package:flutter/material.dart';
 
-import '../../shared/presentation/theme.dart';
+import '../../../../core/theme/app_pallete.dart';
+import '../../../../shared/presentation/widgets/form_widgets/custom_checkbox.dart';
+import '../../../../shared/presentation/widgets/form_widgets/custom_input_field.dart';
+import '../../../../shared/presentation/widgets/form_widgets/custom_password_field.dart';
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({super.key});
@@ -53,7 +53,7 @@ class SignUpForm extends StatelessWidget {
                 TextSpan(
                     text: 'Public Agreement, Terms & Privacy Policy',
                     style:
-                        TextStyle(color: AppTheme.secondaryColor, height: 1.5))
+                        TextStyle(color: AppPallete.primaryColor, height: 1.5))
               ])),
             )
           ],

@@ -1,4 +1,4 @@
-import 'package:amelia/src/feature/welcome/welcome_page.dart';
+import 'package:amelia/src/feature/welcome/presentation/pages/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

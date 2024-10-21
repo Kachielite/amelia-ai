@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../theme.dart';
+import '../../../../core/theme/app_pallete.dart';
 
 class CustomInputField extends StatefulWidget {
   const CustomInputField(
@@ -63,28 +63,15 @@ class _CustomInputFieldState extends State<CustomInputField> {
           cursorColor: Colors.white,
           focusNode: _focusNode, // Attach the focus node to the TextFormField
           decoration: InputDecoration(
-              enabledBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: AppTheme.secondaryColor, // Default border color
-                  width: 1.0, // Border thickness
-                ),
-              ),
-              focusedBorder: const UnderlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.white, // Focused border color
-                  width: 2.0, // Border thickness when focused
-                ),
-              ),
-              hintStyle: const TextStyle(color: Color(0XFF35383F)),
+              hintStyle: const TextStyle(color: AppPallete.placeholderColor),
               hintText: widget.label, // Placeholder text
               suffixIcon: InkWell(
                 child: Icon(
                   widget.icon,
                   size: 28,
                   color: _isFocused
-                      ? Colors.white
-                      : AppTheme
-                          .secondaryColor, // Change icon color based on focus
+                      ? AppPallete.whiteColor
+                      : AppPallete.primaryColor, // Change icon color based on focus
                 ),
               )),
           initialValue: widget.initialValue,

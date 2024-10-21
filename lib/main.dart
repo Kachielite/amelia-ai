@@ -1,5 +1,5 @@
-import 'package:amelia/src/feature/onboarding/onboarding_page.dart';
-import 'package:amelia/src/shared/presentation/theme.dart';
+import 'package:amelia/src/feature/onboarding/presentation/page/onboarding_page.dart';
+import 'package:amelia/src/core/theme/theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Amelia AI',
-      theme: AppTheme.theme,
+      theme: AppTheme.appTheme,
       home: const OnboardingPage(),
     );
   }

@@ -1,7 +1,7 @@
+import 'package:amelia/src/core/theme/app_pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../theme.dart';
 
 enum ButtonType { primary, secondary }
 
@@ -25,8 +25,8 @@ class CustomButton extends StatelessWidget {
           style: ElevatedButton.styleFrom(
               foregroundColor: Colors.white,
               backgroundColor: type.name == 'primary'
-                  ? AppTheme.secondaryColor
-                  : AppTheme.tertiaryColor,
+                  ? AppPallete.primaryColor
+                  : AppPallete.secondaryColor,
               textStyle: GoogleFonts.urbanist(
                   color: Colors.white,
                   fontSize: 18,

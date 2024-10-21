@@ -1,4 +1,4 @@
-import 'package:amelia/src/shared/presentation/theme.dart';
+import 'package:amelia/src/core/theme/app_pallete.dart';
 import 'package:flutter/material.dart';
 
 class CustomCheckbox extends StatelessWidget {
@@ -15,9 +15,9 @@ class CustomCheckbox extends StatelessWidget {
       onChanged: (value) {
         onChanged(value!);
       },
-      activeColor: AppTheme.secondaryColor,
+      activeColor: AppPallete.primaryColor,
       checkColor: Colors.white,
-      side: const BorderSide(color: AppTheme.secondaryColor, width: 2.0),
+      side: const BorderSide(color: AppPallete.secondaryColor, width: 2.0),
     );
   }
 }
