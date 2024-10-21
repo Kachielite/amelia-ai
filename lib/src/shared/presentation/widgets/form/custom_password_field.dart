@@ -83,7 +83,8 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
               )),
           initialValue: widget.initialValue,
           keyboardType: TextInputType
-              .visiblePassword, // Set keyboard type for password input
+              .visiblePassword,
+          obscuringCharacter: '*',// Set keyboard type for password input
         )
       ],
     );
