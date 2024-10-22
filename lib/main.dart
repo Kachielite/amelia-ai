@@ -1,13 +1,16 @@
-import 'package:amelia/src/core/secrets/app_secrets.dart';
-import 'package:amelia/src/feature/onboarding/presentation/page/onboarding_page.dart';
 import 'package:amelia/src/core/theme/theme.dart';
+import 'package:amelia/src/feature/onboarding/presentation/page/onboarding_page.dart';
+import 'package:amelia/src/feature/signup/presentation/bloc/signup_bloc.dart';
+import 'package:amelia/src/shared/app_injection.dart';
 import 'package:flutter/material.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final supabase = await Supabase.initialize(url: AppSecrets.supabaseURL, anonKey: AppSecrets.anonKey);
-  runApp(const MyApp());
+  initDependencies();
+  runApp(MultiBlocProvider(
+      providers: [BlocProvider(create: (_) => serviceLocator<SignupBloc>())],
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
