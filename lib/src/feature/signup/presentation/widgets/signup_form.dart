@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_pallete.dart';
-import '../../../../shared/presentation/widgets/form_widgets/custom_checkbox.dart';
-import '../../../../shared/presentation/widgets/form_widgets/custom_input_field.dart';
-import '../../../../shared/presentation/widgets/form_widgets/custom_password_field.dart';
+import '../../../../shared/presentation/widgets/form/custom_checkbox.dart';
+import '../../../../shared/presentation/widgets/form/custom_input_field.dart';
+import '../../../../shared/presentation/widgets/form/custom_password_field.dart';
+
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({super.key});

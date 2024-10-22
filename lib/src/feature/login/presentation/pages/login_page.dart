@@ -5,7 +5,7 @@ import 'package:amelia/src/feature/signup/presentation/pages/signup_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_pallete.dart';
-import '../../../../shared/presentation/widgets/form_widgets/custom_button.dart';
+import '../../../../shared/presentation/widgets/form/custom_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
