@@ -14,15 +14,11 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
         super(SignupInitial()) {
     on<Signup>((event, emit) async {
       emit(SignupLoading());
-      try {
-        final response = await _useSignUp(
-            UseSignUpParams(email: event.email, password: event.password));
+      final response = await _useSignUp(
+          UseSignUpParams(email: event.email, password: event.password));
 
-        response.fold((l) => left(emit(SignupFailure(l.toString()))),
-            (r) => right(emit(SignupSuccess())));
-      } catch (error) {
-        return emit(SignupFailure(error.toString()));
-      }
+      response.fold((l) => left(emit(SignupFailure(l.message))),
+          (r) => right(emit(SignupSuccess())));
     });
   }
 }

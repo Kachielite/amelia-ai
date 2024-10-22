@@ -5,9 +5,14 @@ import '../../../../shared/presentation/widgets/form/custom_checkbox.dart';
 import '../../../../shared/presentation/widgets/form/custom_input_field.dart';
 import '../../../../shared/presentation/widgets/form/custom_password_field.dart';
 
-
 class SignUpForm extends StatelessWidget {
-  const SignUpForm({super.key});
+  const SignUpForm(
+      {super.key,
+      required this.emailController,
+      required this.passwordController});
+
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
 
   @override
   Widget build(BuildContext context) {
@@ -16,27 +21,17 @@ class SignUpForm extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomInputField(
-            label: "Email",
-            initialValue: "",
-            icon: Icons.email,
-            validator: (value) {
-              print(value);
-            },
-            onSaved: (value) {
-              print(value);
-            }),
+          label: "Email",
+          icon: Icons.email,
+          controller: emailController,
+        ),
         const SizedBox(
           height: 24,
         ),
         CustomPasswordField(
-            label: "Password",
-            initialValue: "",
-            validator: (value) {
-              print(value);
-            },
-            onSaved: (value) {
-              print(value);
-            }),
+          label: "Password",
+          controller: passwordController,
+        ),
         const SizedBox(
           height: 30,
         ),
@@ -49,8 +44,8 @@ class SignUpForm extends StatelessWidget {
             ),
             Expanded(
               child: RichText(
-                  text: const TextSpan(text: 'I agree to Amelia AI', children: [
-                TextSpan(text: ' '),
+                  text:
+                      const TextSpan(text: 'I agree to Amelia AI ', children: [
                 TextSpan(
                     text: 'Public Agreement, Terms & Privacy Policy',
                     style:

@@ -1,7 +1,6 @@
 import 'package:amelia/src/feature/login/presentation/widgets/login_form.dart';
-import 'package:amelia/src/feature/signup/presentation/widgets/signup_info.dart';
 import 'package:amelia/src/feature/signup/presentation/pages/signup_page.dart';
-
+import 'package:amelia/src/feature/signup/presentation/widgets/signup_info.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/theme/app_pallete.dart';
@@ -17,6 +16,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,13 +35,16 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: const BoxDecoration(
                     border:
                         Border(bottom: BorderSide(color: Color(0XFF35383F)))),
-                child: const Column(
+                child: Column(
                   children: [
-                    SignUpInfo(),
-                    SizedBox(
+                    const SignUpInfo(),
+                    const SizedBox(
                       height: 32,
                     ),
-                    LoginForm(),
+                    LoginForm(
+                      emailController: emailController,
+                      passwordController: passwordController,
+                    ),
                   ],
                 ),
               ),

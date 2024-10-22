@@ -6,16 +6,12 @@ class CustomInputField extends StatefulWidget {
   const CustomInputField(
       {super.key,
       required this.label,
-      required this.initialValue,
-      required this.validator,
-      required this.onSaved,
-      required this.icon});
+      required this.icon,
+      required this.controller});
 
   final String label;
-  final String initialValue;
-  final void Function(String value) validator;
-  final void Function(String value) onSaved;
   final IconData icon;
+  final TextEditingController controller;
 
   @override
   State<StatefulWidget> createState() {
@@ -60,8 +56,10 @@ class _CustomInputFieldState extends State<CustomInputField> {
           height: 16,
         ),
         TextFormField(
+          controller: widget.controller,
           cursorColor: Colors.white,
-          focusNode: _focusNode, // Attach the focus node to the TextFormField
+          focusNode: _focusNode,
+          // Attach the focus node to the TextFormField
           decoration: InputDecoration(
               hintStyle: const TextStyle(color: AppPallete.placeholderColor),
               hintText: widget.label, // Placeholder text
@@ -71,11 +69,17 @@ class _CustomInputFieldState extends State<CustomInputField> {
                   size: 28,
                   color: _isFocused
                       ? AppPallete.whiteColor
-                      : AppPallete.primaryColor, // Change icon color based on focus
+                      : AppPallete
+                          .primaryColor, // Change icon color based on focus
                 ),
               )),
-          initialValue: widget.initialValue,
           keyboardType: TextInputType.name,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return '$widget.label is required';
+            }
+            return null;
+          },
         )
       ],
     );

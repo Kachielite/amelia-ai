@@ -19,8 +19,9 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUpPage> {
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
-  final TextEditingController password = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +37,20 @@ class _SignUpState extends State<SignUpPage> {
                 listener: (context, state) {
                   if (state is SignupSuccess) {
                     showDialog(
-                        context: context,
-                        builder: (context) => const CustomDialogue(
-                            image: "assets/feedback/sign_success_feedback.png",
-                            title: "Sign up Successful!"));
+                      context: context,
+                      builder: (context) => const CustomDialogue(
+                        image: "assets/feedback/sign_success_feedback.png",
+                        title: "Sign up Successful!",
+                      ),
+                    );
+
+                    // Wrap context check inside the closure and add mounted check
+                    Future.delayed(const Duration(seconds: 10), () {
+                      if (mounted && Navigator.canPop(context)) {
+                        // Ensure context is still valid
+                        Navigator.of(context).pop();
+                      }
+                    });
                   }
 
                   if (state is SignupFailure) {
@@ -49,61 +60,73 @@ class _SignUpState extends State<SignUpPage> {
                   }
                 },
                 builder: (context, state) {
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.only(
-                            top: 24, left: 24, right: 24, bottom: 24),
-                        child: const Column(
+                  return Form(
+                    key: formKey,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisSize: MainAxisSize.max,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.only(
+                              top: 24, left: 24, right: 24, bottom: 24),
+                          child: Column(
+                            children: [
+                              const SignUpInfo(),
+                              const SizedBox(
+                                height: 50,
+                              ),
+                              SignUpForm(
+                                emailController: emailController,
+                                passwordController: passwordController,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            SignUpInfo(),
-                            SizedBox(
-                              height: 50,
+                            const Text(
+                              'Already have an account?',
+                              style: TextStyle(fontWeight: FontWeight.w700),
                             ),
-                            SignUpForm(),
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.pushReplacement(context,
+                                      MaterialPageRoute(builder: (context) {
+                                    return const LoginPage();
+                                  }));
+                                },
+                                child: const Text(
+                                  'Log in',
+                                  style: TextStyle(
+                                      color: AppPallete.primaryColor,
+                                      fontWeight: FontWeight.w700),
+                                ))
                           ],
                         ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            'Already have an account?',
-                            style: TextStyle(fontWeight: FontWeight.w700),
-                          ),
-                          TextButton(
+                        const SizedBox(
+                          height: 100,
+                        ),
+                        Container(
+                          decoration: const BoxDecoration(
+                              border: Border(
+                                  top: BorderSide(color: Color(0XFF35383F)))),
+                          padding: const EdgeInsets.only(
+                              top: 24, left: 24, right: 26, bottom: 36),
+                          child: CustomButton(
+                              isLoading: state is SignupLoading ? true : false,
                               onPressed: () {
-                                Navigator.pushReplacement(context,
-                                    MaterialPageRoute(builder: (context) {
-                                  return const LoginPage();
-                                }));
+                                if (formKey.currentState!.validate()) {
+                                  context.read<SignupBloc>().add(Signup(
+                                      emailController.text.trim(),
+                                      passwordController.text.trim()));
+                                }
                               },
-                              child: const Text(
-                                'Log in',
-                                style: TextStyle(
-                                    color: AppPallete.primaryColor,
-                                    fontWeight: FontWeight.w700),
-                              ))
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 100,
-                      ),
-                      Container(
-                        decoration: const BoxDecoration(
-                            border: Border(
-                                top: BorderSide(color: Color(0XFF35383F)))),
-                        padding: const EdgeInsets.only(
-                            top: 24, left: 24, right: 26, bottom: 36),
-                        child: CustomButton(
-                            isLoading: state is SignupLoading ? true : false,
-                            onPressed: () {},
-                            label: 'Continue',
-                            type: ButtonType.primary),
-                      )
-                    ],
+                              label: 'Continue',
+                              type: ButtonType.primary),
+                        )
+                      ],
+                    ),
                   );
                 },
               ),

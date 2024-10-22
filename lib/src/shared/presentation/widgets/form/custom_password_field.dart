@@ -1,19 +1,12 @@
 import 'package:amelia/src/core/theme/app_pallete.dart';
 import 'package:flutter/material.dart';
 
-
 class CustomPasswordField extends StatefulWidget {
   const CustomPasswordField(
-      {super.key,
-      required this.label,
-      required this.initialValue,
-      required this.validator,
-      required this.onSaved});
+      {super.key, required this.label, required this.controller});
 
   final String label;
-  final String initialValue;
-  final void Function(String value) validator;
-  final void Function(String value) onSaved;
+  final TextEditingController controller;
 
   @override
   State<CustomPasswordField> createState() {
@@ -60,8 +53,11 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
           height: 16,
         ),
         TextFormField(
-          focusNode: _focusNode, // Attach the focus node to the TextFormField
-          obscureText: _isObscured, // Control whether the text is obscured
+          controller: widget.controller,
+          focusNode: _focusNode,
+          // Attach the focus node to the TextFormField
+          obscureText: _isObscured,
+          // Control whether the text is obscured
           decoration: InputDecoration(
               hintStyle: const TextStyle(color: Color(0XFF35383F)),
               hintText: widget.label, // Placeholder text
@@ -73,7 +69,8 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
                   size: 28,
                   color: _isFocused
                       ? AppPallete.whiteColor
-                      : AppPallete.primaryColor, // Change icon color based on focus
+                      : AppPallete
+                          .primaryColor, // Change icon color based on focus
                 ),
                 onPressed: () {
                   setState(() {
@@ -81,10 +78,14 @@ class _CustomPasswordFieldState extends State<CustomPasswordField> {
                   });
                 },
               )),
-          initialValue: widget.initialValue,
-          keyboardType: TextInputType
-              .visiblePassword,
-          obscuringCharacter: '*',// Set keyboard type for password input
+          keyboardType: TextInputType.visiblePassword,
+          obscuringCharacter: '*',
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'Password is required';
+            }
+            return null;
+          }, // Set keyboard type for password input
         )
       ],
     );

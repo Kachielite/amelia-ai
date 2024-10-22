@@ -15,52 +15,45 @@ class CustomDialogue extends StatelessWidget {
       ),
       backgroundColor: AppPallete.backgroundColor,
       content: Padding(
-        padding: const EdgeInsets.all(32),
-        child: Center(
-          child: Column(
-            children: [
-              Image.asset(
-                image,
-                width: 186,
-                height: 180,
+        padding: const EdgeInsets.symmetric(vertical: 16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Image.asset(
+              image,
+              width: 186,
+              height: 180,
+            ),
+            const SizedBox(
+              height: 32,
+            ),
+            Text(
+              title,
+              style: const TextStyle(
+                  color: AppPallete.primaryColor,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 24),
+            ),
+            const SizedBox(
+              height: 32,
+            ),
+            const Text(
+              'Please wait...\nYou will be directed to the homepage.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.white,
               ),
-              const SizedBox(
-                height: 32,
-              ),
-              Text(
-                title,
-                style: const TextStyle(
-                    color: AppPallete.primaryColor,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 24),
-              ),
-              const SizedBox(
-                height: 32,
-              ),
-              const Text(
-                'Please wait...',
-                style: TextStyle(
-                    color: AppPallete.primaryColor,
-                    fontWeight: FontWeight.normal,
-                    fontSize: 16),
-              ),
-              const Text(
-                'Please wait...\nYou will be directed to the homepage.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(
-                height: 32,
-              ),
-              const CircularProgressIndicator(
-                color:
-                    AppPallete.primaryColor, // Customize the progress indicator
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(
+              height: 32,
+            ),
+            const CircularProgressIndicator(
+              color:
+                  AppPallete.primaryColor, // Customize the progress indicator
+            ),
+          ],
         ),
       ),
     );
