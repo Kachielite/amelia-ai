@@ -76,7 +76,7 @@ class _CustomInputFieldState extends State<CustomInputField> {
           keyboardType: TextInputType.name,
           validator: (value) {
             if (value!.isEmpty) {
-              return '$widget.label is required';
+              return '${widget.label} is required';
             }
             return null;
           },

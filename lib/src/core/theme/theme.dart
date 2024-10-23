@@ -16,7 +16,9 @@ class AppTheme {
     inputDecorationTheme: InputDecorationTheme(
         contentPadding: const EdgeInsets.symmetric(vertical: 10),
         enabledBorder: _border(),
-        focusedBorder: _border(AppPallete.whiteColor)),
+        focusedBorder: _border(AppPallete.whiteColor),
+        errorBorder: _border(AppPallete.errorColor),
+        errorStyle: const TextStyle(color: AppPallete.errorColor)),
     textTheme: GoogleFonts.urbanistTextTheme(
       ThemeData.dark().textTheme, // Apply to dark theme
     ),
