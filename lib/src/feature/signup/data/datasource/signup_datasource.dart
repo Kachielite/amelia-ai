@@ -18,8 +18,6 @@ class SignUpDatasourceImpl implements SignUpDatasource {
       final response =
           await supabaseClient.auth.signUp(password: password, email: email);
 
-      print(response.toString());
-
       if (response.user == null) {
         throw ServerException('User is null');
       }

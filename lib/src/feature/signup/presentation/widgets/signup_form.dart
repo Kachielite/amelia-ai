@@ -33,7 +33,7 @@ class SignUpForm extends StatelessWidget {
           controller: passwordController,
         ),
         const SizedBox(
-          height: 30,
+          height: 60,
         ),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
