@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  initDependencies();
+  await initDependencies();
   runApp(
     MultiBlocProvider(
       providers: [
@@ -43,7 +43,24 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Amelia AI',
       theme: AppTheme.appTheme,
-      home: const OnboardingPage(),
+      home: BlocSelector<AppUserCubit, AppUserState, bool>(
+        selector: (state) {
+          if (state is AppUserIsLoggedIn) {
+            return true;
+          } else {
+            return false;
+          }
+        },
+        builder: (context, isLoggedIn) {
+          if (isLoggedIn) {
+            return const Center(
+              child: Text('User is logged in'),
+            );
+          } else {
+            return const OnboardingPage();
+          }
+        },
+      ),
     );
   }
 }

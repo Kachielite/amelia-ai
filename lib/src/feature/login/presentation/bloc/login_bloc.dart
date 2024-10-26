@@ -25,6 +25,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         _useCurrentUser = useCurrentUser,
         super(LoginInitial()) {
     on<Login>(_loginUser);
+    on<LoginUserLoggedIn>(_loginUserLoggedIn);
   }
 
   _loginUser(Login event, Emitter<LoginState> emit) async {
