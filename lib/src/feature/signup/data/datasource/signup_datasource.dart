@@ -1,5 +1,5 @@
 import 'package:amelia/src/core/errors/server_exception.dart';
-import 'package:amelia/src/feature/signup/data/model/user_model.dart';
+import 'package:amelia/src/shared/data/models/user_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 abstract interface class SignUpDatasource {

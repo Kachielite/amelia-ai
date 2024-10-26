@@ -1,7 +1,7 @@
 import 'package:amelia/src/core/errors/failure.dart';
 import 'package:amelia/src/core/errors/server_exception.dart';
 import 'package:amelia/src/feature/signup/data/datasource/signup_datasource.dart';
-import 'package:amelia/src/feature/signup/domain/entity/user.dart';
+import 'package:amelia/src/shared/domain/entities/user.dart';
 import 'package:fpdart/fpdart.dart';
 
 import '../../domain/repository/signup_repository.dart';

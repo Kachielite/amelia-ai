@@ -9,3 +9,5 @@ class Login extends LoginEvent {
 
   Login({required this.email, required this.password});
 }
+
+class LoginUserLoggedIn extends LoginEvent {}

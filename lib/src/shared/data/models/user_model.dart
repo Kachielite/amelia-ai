@@ -1,4 +1,4 @@
-import 'package:amelia/src/feature/signup/domain/entity/user.dart';
+import 'package:amelia/src/shared/domain/entities/user.dart';
 
 class UserModel extends User {
   UserModel({required super.id, required super.name, required super.email});
@@ -8,5 +8,17 @@ class UserModel extends User {
         id: map['id'] ?? '',
         name: map['name'] ?? '',
         email: map['email'] ?? '');
+  }
+
+  UserModel copyWith({
+    String? id,
+    String? name,
+    String? email,
+  }) {
+    return UserModel(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      email: email ?? this.email,
+    );
   }
 }

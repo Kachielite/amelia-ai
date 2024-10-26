@@ -1,6 +1,6 @@
 import 'package:amelia/src/core/errors/failure.dart';
-import 'package:amelia/src/feature/login/domain/entity/user.dart';
 import 'package:amelia/src/feature/login/domain/repository/login_repository.dart';
+import 'package:amelia/src/shared/domain/entities/user.dart';
 import 'package:fpdart/fpdart.dart';
 
 import '../../../../shared/domain/useCase/useCase.dart';
